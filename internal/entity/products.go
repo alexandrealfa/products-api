@@ -22,13 +22,19 @@ type Products struct {
 	CreatedAt time.Time `json:"created_at"`
 }
 
-func CreateProduct(name string, price float64) *Products {
-	return &Products{
+func CreateProduct(name string, price float64) (*Products, error) {
+	products := Products{
 		entity.NewId(),
 		name,
 		price,
 		time.Now(),
 	}
+
+	if err := products.Validate(); err != nil {
+		return nil, err
+	}
+
+	return &products, nil
 }
 
 func (p *Products) Validate() error {
