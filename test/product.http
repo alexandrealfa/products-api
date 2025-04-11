@@ -1,0 +1,8 @@
+#POST http://localhost:8002/products
+#Content-Type: application/json
+# {
+#"name": "caneca",
+#"price": 24.00
+#}
+
+GET http://localhost:8002/products/ddf66351-07f9-4456-a3b7-441eb834c0f6
